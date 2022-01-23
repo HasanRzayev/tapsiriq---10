@@ -55,7 +55,9 @@ List<Debtor> debtors = new List<Debtor> {
             new Debtor("James E. Denning", DateTime.Parse("May 4, 1988"), "504-289-8640", "JamesEDenning@jourrapide.com", "1444 Rose Avenue Metairie, LA 70001", 8176),
             new Debtor("Richard M. Thomas", DateTime.Parse("February 13, 1972"), "510-735-3359", "RichardMThomas@jourrapide.com", "4454 Green Avenue Oakland, CA 94609", 7875),
             new Debtor("Lakisha R. Forrest", DateTime.Parse("December 1, 1973"), "334-830-1181", "LakishaRForrest@armyspy.com", "3121 Quarry Drive Montgomery, AL 36117", 3088),
-            new Debtor("Pamela H. Beauchamp", DateTime.Parse("November 20, 1959"), "801-559-6347", "PamelaHBeauchamp@jourrapide.com", "3239 Tori Lane Salt Lake City, UT 84104", 6588)
+            new Debtor("Pamela H. Beauchamp", DateTime.Parse("November 20, 1959"), "801-559-6347", "PamelaHBeauchamp@jourrapide.com", "3239 Tori Lane Salt Lake City, UT 84104", 6588),
+            new Debtor("Pamela H. Beauchamp", DateTime.Parse("November 20, 1959"), "12345", "PamelaHBeauchamp@jourrapide.com", "3239 Tori Lane Salt Lake City, UT 84104", 6588)
+
         };
 
 
@@ -120,14 +122,7 @@ List<Debtor> debtors = new List<Debtor> {
 ///11-ci
 
 
-//var list5 = debtors.FindAll(delegate (Debtor s)
-//            {
-//                for (int i = 0; i < s.FullName.Length; i++)
-//                {
-//                    if (s.FullName.Count(n => n == s.FullName[i]) == 3) return true;
-//                }
-//                return false;
-//            });
+//var list5 = debtors.FindAll(d=>d.FullName.Any(c=>d.FullName.Split(c).Length>3)).ToList();
 //var list2 = list5.OrderBy(s => s.FullName);
 //foreach (var item in list2)
 //{
@@ -160,24 +155,14 @@ List<Debtor> debtors = new List<Debtor> {
 //    Console.WriteLine(item);
 //}
 ////////////////////////////////////////////////////////////////////////////////////////
-//18 ci
-//var list6 = debtors.Select(delegate (Debtor d)
-//{
-//    int k = 0;
-//    for (int i = 0; i < d.Phone.Length; i++)
-//    {
-//        if (d.Phone.Count(a => a == d.Phone[i]) > 1) break;
-//        else k++;
-//    }
+////18 ci
+var list6 = debtors.FindAll(d => d.Phone.Any((c => d.Phone.Split(c).Length >2))==false).ToList();
+foreach (var item in list6)
+{
 
-//    if (k == d.Phone.Length) return $"{ d.Debt}";
-//    else return null;
+    Console.WriteLine(item);
 
-//}).ToList();
-//foreach (var item in list6)
-//{
-//    Console.WriteLine(item);
-//}
+}
 ////////////////////////////////////////////////////////////////////////////////////////
 //19-cu
 //var list4 = debtors.FindAll(d => (d.BirthDay.Month-1)*500>d.Debt );
