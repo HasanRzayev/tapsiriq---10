@@ -155,14 +155,14 @@ List<Debtor> debtors = new List<Debtor> {
 //    Console.WriteLine(item);
 //}
 ////////////////////////////////////////////////////////////////////////////////////////
-////18 ci
-var list6 = debtors.FindAll(d => d.Phone.Any((c => d.Phone.Split(c).Length >2))==false).ToList();
-foreach (var item in list6)
-{
+//////18 ci
+//var list6 = debtors.FindAll(d => d.Phone.Any((c => d.Phone.Split(c).Length >2))==false).ToList();
+//foreach (var item in list6)
+//{
 
-    Console.WriteLine(item);
+//    Console.WriteLine(item);
 
-}
+//}
 ////////////////////////////////////////////////////////////////////////////////////////
 //19-cu
 //var list4 = debtors.FindAll(d => (d.BirthDay.Month-1)*500>d.Debt );
